@@ -21,6 +21,11 @@ app.get("/", (req, res) => {
   res.send("Tamo online!");
 });
 
+app.get("/produtos", async (req, res) => {
+  const result = await pool.query("SELECT * FROM produtos");
+  res.json(result.rows);
+});
+
 app.listen(port, () => {
   console.log(`Rodando em http://localhost:${port}`);
 });
