@@ -36,6 +36,8 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
    docker-compose up
    ou
    docker-compose up -d #para rodar em segundo plano
+   ou
+   make up #caso tenha o make instalado
    ```
 
 4. Em outra instância do terminal, inicie o servidor de desenvolvimento:
