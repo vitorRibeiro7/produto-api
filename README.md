@@ -51,7 +51,7 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
 ## Rotas da API
 
 ### Criar um novo produto
-- **Rota**: `POST /products`
+- **Rota**: `POST /produto`
 - **Descrição**: Cria um novo produto.
 - **Exemplo de corpo da requisição**:
   ```json
@@ -64,7 +64,7 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
   ```
 
 ### Listar todos os produtos
-- **Rota**: `GET /products`
+- **Rota**: `GET /produtos`
 - **Descrição**: Retorna todos os produtos cadastrados.
 - **Resposta**: 
   ```json
@@ -88,7 +88,7 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
   ```
 
 ### Buscar um produto específico
-- **Rota**: `GET /products/:id`
+- **Rota**: `GET /produto/:id`
 - **Descrição**: Retorna um produto com o `id` especificado.
 - **Resposta**:
   ```json
@@ -102,7 +102,7 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
   ```
   
 ### Atualizar um produto
-- **Rota**: `PUT /products/:id`
+- **Rota**: `PUT /produto/:id`
 - **Descrição**: Atualiza as informações de um produto existente.
 - **Exemplo de corpo da requisição**:
   ```json
@@ -114,7 +114,7 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
   ```
 
 ### Deletar um produto
-- **Rota**: `DELETE /products/:id`
+- **Rota**: `DELETE /produto/:id`
 - **Descrição**: Remove o produto com o `id` especificado.
 
 ## Documentação da API

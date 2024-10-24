@@ -26,13 +26,13 @@ app.get("/produtos", async (req, res) => {
   return res.status(200).json(result.rows);
 });
 
-app.get("/produtos/:id", async (req, res) => {
+app.get("/produto/:id", async (req, res) => {
   const { id } = req.params;
   const result = await pool.query("SELECT * FROM produtos WHERE id = $1", [id]);
   return res.status(200).json(...result.rows);
 });
 
-app.post("/produtos", async (req, res) => {
+app.post("/produto", async (req, res) => {
   const { descricao, preco, estoque, data } = req.body;
   const result = await pool.query(
     "INSERT INTO produtos (descricao, preco, estoque, data) VALUES ($1, $2, $3, $4) RETURNING *",
@@ -41,7 +41,7 @@ app.post("/produtos", async (req, res) => {
   return res.status(201).json(...result.rows);
 });
 
-app.put("/produtos/:id", async (req, res) => {
+app.put("/produto/:id", async (req, res) => {
   const { id } = req.params;
   const { descricao, preco, estoque, data } = req.body;
   const result = await pool.query(
@@ -51,7 +51,7 @@ app.put("/produtos/:id", async (req, res) => {
   return res.status(200).json(...result.rows);
 });
 
-app.delete("/produtos/:id", async (req, res) => {
+app.delete("/produto/:id", async (req, res) => {
   const { id } = req.params;
   const result = await pool.query("DELETE FROM produtos WHERE id = $1", [id]);
   return res.status(204).send();
