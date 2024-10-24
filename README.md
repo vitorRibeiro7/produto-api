@@ -54,9 +54,10 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
 - **Exemplo de corpo da requisição**:
   ```json
   {
-    "name": "Produto Exemplo",
+    "id": 1,
+    "description": "Descrição do produto",
     "price": 199.99,
-    "description": "Descrição do produto"
+    "estoque": 10
   }
   ```
 
@@ -68,16 +69,35 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
   [
     {
       "id": 1,
-      "name": "Produto Exemplo",
+      "description": "Descrição do produto",
       "price": 199.99,
-      "description": "Descrição do produto"
+      "estoque": 10,
+      "date": "2024-09-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "description": "Descrição do produto 2",
+      "price": 299.99,
+      "estoque": 10,
+      "date": "2024-09-01T00:00:00.000Z"
     }
+    , ...
   ]
   ```
 
 ### Buscar um produto específico
 - **Rota**: `GET /products/:id`
 - **Descrição**: Retorna um produto com o `id` especificado.
+- **Resposta**:
+  ```json
+  {
+    "id": 1,
+    "description": "Descrição do produto",
+    "price": 199.99,
+    "estoque": 10,
+    "date": "2024-09-01T00:00:00.000Z"
+  }
+  ```
   
 ### Atualizar um produto
 - **Rota**: `PUT /products/:id`
@@ -85,8 +105,9 @@ Siga os passos abaixo para configurar e rodar o projeto localmente.
 - **Exemplo de corpo da requisição**:
   ```json
   {
-    "name": "Novo nome do produto",
-    "price": 249.99
+    "description": "Nova descrição do produto",
+    "price": 249.99,
+    "estoque": 10,
   }
   ```
 
