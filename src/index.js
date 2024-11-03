@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const { Pool } = require("pg");
-require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
 const port = 3000;
@@ -8,6 +9,10 @@ const port = 3000;
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 pool.connect((err, client, release) => {
   if (err) {
@@ -55,6 +60,12 @@ app.delete("/produto/:id", async (req, res) => {
   const { id } = req.params;
   const result = await pool.query("DELETE FROM produtos WHERE id = $1", [id]);
   return res.status(204).send();
+});
+
+// log on console all requests
+app.use((req, res, next) => {
+  console.log(`Request: ${req.method} ${req.originalUrl}`);
+  next();
 });
 
 app.listen(port, () => {
